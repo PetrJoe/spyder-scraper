@@ -57,6 +57,7 @@ EXTENSIONS = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'profile_scraper.pipelines.ProfileScraperPipeline': 300,
+   'profile_scraper.pipelines.CsvExportPipeline': 800,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
