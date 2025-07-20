@@ -11,6 +11,9 @@ USER_AGENT = 'profile_scraper (+http://www.yourdomain.com)'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+# Disable logging to the terminal
+LOG_ENABLED = False
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
 
@@ -57,7 +60,7 @@ EXTENSIONS = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'profile_scraper.pipelines.ProfileScraperPipeline': 300,
-   'profile_scraper.pipelines.CsvExportPipeline': 800,
+   'profile_scraper.pipelines.JsonExportPipeline': 800,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
