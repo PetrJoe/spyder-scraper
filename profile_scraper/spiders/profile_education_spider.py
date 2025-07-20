@@ -1,13 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from scrapy.http import HtmlResponse
-from scrapy.utils.response import open_in_browser
-import requests
-import json
-
-# Uncomment and define this class or import from your items.py
-# from your_project.items import CosydirectItem
+from profile_scraper.items import ProfileEducationItem
 
 class ProfileEducationSpider(scrapy.Spider):
     name = 'profileeducation'
@@ -63,10 +57,7 @@ class ProfileEducationSpider(scrapy.Spider):
 
     def parse_product(self, response):
         """Extract product details from product page."""
-        # If you're using Scrapy items, uncomment this:
-        # item = CosydirectItem()
-
-        item = {}
+        item = ProfileEducationItem()
 
         item['item_url'] = response.url
         item['title'] = response.xpath('//*[@id="product_details"]//h1//text()').get(default='').strip()
@@ -88,10 +79,6 @@ class ProfileEducationSpider(scrapy.Spider):
     def close(self, spider, reason):
         """Run export and notify logic when crawl ends."""
         self.logger.info("Spider closed: running export and email...")
-        Export_CSV(_name=self.name)
-        sendEmail(_name=self.name)
-
-
-# Entry point to run directly
-from scrapy.cmdline import execute
-# execute(["scrapy", "crawl", "profileeducation"])
+        # Implement Export_CSV and sendEmail functions or import them
+        # Export_CSV(_name=self.name)
+        # sendEmail(_name=self.name)
