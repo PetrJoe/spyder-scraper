@@ -7,3 +7,4 @@ profile_scraper/
     ├── pipelines.py
     ├── settings.py
     └── spiders/
+scrapy crawl profileeducation
